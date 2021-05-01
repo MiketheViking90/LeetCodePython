@@ -24,6 +24,5 @@ class Solution:
         return prods
 
 nums = [1,2,3,4]
-nums = [1,2,3,0,4]
 prods = Solution().productExceptSelf(nums)
 print(prods)
