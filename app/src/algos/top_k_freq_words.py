@@ -9,15 +9,20 @@ class Solution:
         heap = []
 
         for word, count in word_counts.items():
-            heap_item = (-count, word)
+            heap_item = (count, word)
             if len(heap) < k:
                 heappush(heap, heap_item)
             else:
-                heappushpop(heap, heap_item)
+                if count > heap[0][0]:
+                    heappushpop(heap, heap_item)
 
-        return [word for (count, word) in heap]
+        print(heap)
+        freq = [word for (count, word) in heap]
+        freq.reverse()
+        return freq
 
-words = ["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"]
+words1 = ["i", "love", "leetcode", "i", "love", "coding"]
+words2= ["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"]
 k = 4
-freq = Solution().topKFrequent(words, k)
+freq = Solution().topKFrequent(words2, k)
 print(freq)
